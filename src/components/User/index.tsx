@@ -36,10 +36,16 @@ const Users: React.FC<Props> = ({values}) => {
          />
          <GridTextField
             size={6}
+            name="dataNascimento"
             value={values?.dataNascimento}
             label="Data de nascimento"
          />
-         <GridTextField size={6} value={values?.email} label="E-mail" />
+         <GridTextField
+            size={6}
+            value={values?.email}
+            label="E-mail"
+            name="email"
+         />
       </>
    );
 };
