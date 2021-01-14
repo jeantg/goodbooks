@@ -1,7 +1,7 @@
 import React from 'react';
 import {Grid, Button} from '@material-ui/core';
 import {Formik, Form} from 'formik';
-import {Create, Delete, Update} from '@actions';
+import {Create} from '@actions';
 import {connect} from 'react-redux';
 import {UserList} from '@components';
 import './styles.css';
@@ -48,6 +48,7 @@ const listUsers: React.FC = ({dispatch, history, users}: any) => {
    );
 };
 const mapStateToProps = (store) => ({
+   typesUser: store.userState.typesUser,
    users: store.userState.users,
 });
 export default connect(mapStateToProps)(listUsers);

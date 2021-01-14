@@ -5,6 +5,7 @@ interface Props {
    onChange?: (e: any) => void;
    label?: string;
    type?: string;
+   select?: boolean;
    value?: any;
    disabled?: boolean;
    name?: string;

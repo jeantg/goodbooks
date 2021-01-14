@@ -1,15 +1,21 @@
 import React, {useState} from 'react';
-import {Grid, Button} from '@material-ui/core';
+import {Grid, Button, MenuItem} from '@material-ui/core';
 import {GridTextField} from '@components';
 import './styles.css';
+import {connect} from 'react-redux';
 import {Delete, Update} from '@actions';
+interface TypesUser {
+   name: '';
+   value: '';
+}
 interface Props {
    user: any;
    index?: number;
+   typesUser?: [TypesUser];
    dispatch: any;
 }
 
-const Users: React.FC<Props> = ({index, user, dispatch}) => {
+const Users: React.FC<Props> = ({index, user, typesUser, dispatch}) => {
    const [update, setUpdate] = useState(false);
    return (
       <div className="list-user">
@@ -37,7 +43,7 @@ const Users: React.FC<Props> = ({index, user, dispatch}) => {
                   size={6}
                   disabled={!!!update}
                   type="password"
-                  name="confirmPassword"
+                  name={`[${index}].confirmPassword`}
                   label="Confirmar Senha"
                />
             )}
@@ -53,6 +59,20 @@ const Users: React.FC<Props> = ({index, user, dispatch}) => {
                name={`[${index}].email`}
                disabled={!!!update}
             />
+            <GridTextField
+               size={6}
+               label="Tipo usuário"
+               disabled={!!!update}
+               name={`[${index}].tipoUsuario`}
+               select={true}
+            >
+               {typesUser &&
+                  typesUser.map((item) => (
+                     <MenuItem key={item?.value} value={item?.value}>
+                        {item.name}
+                     </MenuItem>
+                  ))}
+            </GridTextField>
             <Grid container spacing={3} justify="center" alignItems="center">
                <Button
                   variant="contained"
@@ -85,4 +105,7 @@ const Users: React.FC<Props> = ({index, user, dispatch}) => {
       </div>
    );
 };
-export default Users;
+const mapStateToProps = (store) => ({
+   typesUser: store.userState.typesUser,
+});
+export default connect(mapStateToProps)(Users);

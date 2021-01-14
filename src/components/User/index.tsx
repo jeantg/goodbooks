@@ -1,29 +1,25 @@
 import React from 'react';
 import {GridTextField} from '@components';
+import {MenuItem} from '@material-ui/core';
+import {connect} from 'react-redux';
+interface TypesUser {
+   name: '';
+   value: '';
+}
 interface Props {
    values: any;
    handleChange: (e) => void;
+   typesUser?: [TypesUser];
 }
-const Users: React.FC<Props> = ({values}) => {
+
+const Users: React.FC<Props> = ({typesUser}) => {
    return (
       <>
-         <GridTextField
-            size={6}
-            name="id"
-            value={values?.id}
-            disabled={true}
-            label="Id"
-         />
-         <GridTextField
-            size={6}
-            name="nome"
-            value={values?.nome}
-            label="Nome"
-         />
+         <GridTextField size={6} name="id" disabled={true} label="Id" />
+         <GridTextField size={6} name="nome" label="Nome" />
          <GridTextField
             size={6}
             name="password"
-            value={values?.password}
             type="password"
             label="Senha"
          />
@@ -31,22 +27,30 @@ const Users: React.FC<Props> = ({values}) => {
             size={6}
             type="password"
             name="confirmPassword"
-            value={values?.confirmPassword}
             label="Confirmar Senha"
          />
          <GridTextField
             size={6}
             name="dataNascimento"
-            value={values?.dataNascimento}
             label="Data de nascimento"
          />
+         <GridTextField size={6} label="E-mail" name="email" />
          <GridTextField
             size={6}
-            value={values?.email}
-            label="E-mail"
-            name="email"
-         />
+            label="Tipo usuário"
+            name="tipoUsuario"
+            select={true}
+         >
+            {typesUser?.map((item) => (
+               <MenuItem key={item?.value} value={item?.value}>
+                  {item.name}
+               </MenuItem>
+            ))}
+         </GridTextField>
       </>
    );
 };
-export default Users;
+const mapStateToProps = (store) => ({
+   typesUser: store.userState.typesUser,
+});
+export default connect(mapStateToProps)(Users);
