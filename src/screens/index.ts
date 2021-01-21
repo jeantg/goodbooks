@@ -1,2 +1,2 @@
-export {default as ScreenRegisterUser} from './register/index';
-export {default as ListUsers} from './listUser/index';
+export { default as Home } from './Home/index'
+export { default as Favorites } from './Favorites/index'

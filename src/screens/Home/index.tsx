@@ -8,8 +8,11 @@ import { TypeBooks } from './ListBooks/types'
 import useDebounce from './useDebounce'
 import useGetList from './useGetList'
 import LoadCardView from './LoadScreenViewCard/index'
+
 const Home: React.FC = () => {
-  const [bookDescription, setBookDescription] = useState<TypeBooks>({})
+  const [bookDescription, setBookDescription] = useState<
+    TypeBooks | undefined
+  >()
   const perPage = 15
   const {
     booksData,

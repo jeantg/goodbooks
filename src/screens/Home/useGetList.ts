@@ -1,12 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { useCallback, useState } from 'react'
-import { TypeBooks } from './ListBooks/types'
+import { booksData } from './ListBooks/types'
 import { BooksService } from '@services'
 import { AxiosResponse } from 'axios'
-interface booksData {
-  items: [TypeBooks]
-  totalItems?: number
-}
+
 interface Props {
   perPage: number
 }
@@ -14,11 +11,11 @@ interface ItemsUse {
   getList: (e: string, p: number, type: boolean) => void
   loading: boolean
   booksSearchValue: string
-  booksData: booksData
+  booksData: booksData | undefined
   setBooks: (e: booksData) => void
 }
-export default function useGetList({ perPage }: Props): ItemsUse {
-  const [booksData, setBooks] = useState<booksData>({ items: [{}] })
+export default function useGetList ({ perPage }: Props): ItemsUse {
+  const [booksData, setBooks] = useState<booksData>()
   const [booksSearchValue, setBooksSearchValue] = useState('')
   const [loading, setLoading] = useState(false)
   const getList = useCallback(
@@ -39,7 +36,6 @@ export default function useGetList({ perPage }: Props): ItemsUse {
         setBooksSearchValue(e)
         setLoading(false)
       } catch (e) {
-        console.log(e)
         setLoading(false)
       }
     },

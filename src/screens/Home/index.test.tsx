@@ -20,6 +20,7 @@ const reply = {
         authors: ['António Cardoso'],
         publisher: 'Universidade do Porto',
         publishedDate: '2007',
+        description: "description",
         industryIdentifiers: [
           {
             type: 'ISBN_10',
@@ -95,7 +96,7 @@ test('Test render Home component', async () => {
   fireEvent.change(input, { target: { value: 'test' } })
   await screen.findByText('Estação de S. Bento Marques da Silva')
   const buttons = await screen.findAllByRole('button')
-  expect(buttons[0]).toHaveClass('active')
+  expect(buttons[1]).toHaveClass('active')
 })
 test('Test render Hone and test change page', async () => {
   mock.reset()
@@ -112,6 +113,7 @@ test('Test render Hone and test change page', async () => {
           title: 'Test book',
           authors: ['António Cardoso'],
           publisher: 'Universidade do Porto',
+
           publishedDate: '2007',
           industryIdentifiers: [
             {
@@ -186,16 +188,31 @@ test('Test render Hone and test change page', async () => {
   fireEvent.change(input, { target: { value: 'test' } })
   await screen.findByText('Test book')
   const buttons = await screen.findAllByRole('button')
-  expect(buttons[0]).toHaveClass('active')
+  expect(buttons[1]).toHaveClass('active page')
   mock.reset()
   mock.onGet('').reply(200, reply)
   fireEvent.click(buttons[2])
   await findByText('Estação de S. Bento Marques da Silva')
-  expect(buttons[2]).toHaveClass('active')
-  expect(buttons[1]).not.toHaveClass('active')
-  expect(buttons[0].textContent).toEqual('1')
-  expect(buttons[1].textContent).toEqual('2')
-  expect(buttons[2].textContent).toEqual('3')
-  expect(buttons[3].textContent).toEqual('4')
-  expect(buttons[4].textContent).toEqual('...')
+  expect(buttons[2]).toHaveClass('active page')
+  expect(buttons[3]).not.toHaveClass('active page')
+  expect(buttons[1].textContent).toEqual('1')
+  expect(buttons[2].textContent).toEqual('2')
+  expect(buttons[3].textContent).toEqual('3')
+  expect(buttons[4].textContent).toEqual('4')
+  expect(buttons[5].textContent).toEqual('...')
+})
+test('Test modal description', async () => {
+  mock.onGet('').reply(200, reply)
+  const {container} = render(<Home />)
+  const input = screen.getByRole('textbox')
+  fireEvent.change(input, { target: { value: 'test' } })
+  const text = await screen.findByText('Estação de S. Bento Marques da Silva')
+  fireEvent.click(text)
+  const svg = container.querySelectorAll('svg')
+  await screen.findByText("Saiba mais sobre este livro")
+  await screen.findByText("António Cardoso")
+  await screen.findByText("Autor (es):")
+  await screen.findByText("description")
+  fireEvent.click(svg[1])
+  expect(screen.queryByText("Saiba mais sobre este livro")).toEqual(null)
 })

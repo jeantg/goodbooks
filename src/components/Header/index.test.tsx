@@ -2,6 +2,11 @@ import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { Header } from '@components'
 import '@testing-library/jest-dom'
+jest.mock('react-router-dom', () => ({
+  useHistory: () => ({
+    push: jest.fn()
+  })
+}))
 test('Test render Header component', async () => {
   const onChange = jest.fn()
   render(<Header onChange={onChange} />)

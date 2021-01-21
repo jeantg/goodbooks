@@ -1,12 +1,10 @@
+## Instalar e iniciar o projeto
 
+execute os comandos:
 
-
-## Available Scripts
-
-In the project directory, you can run:
+### `yarn install`
 
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
+O aplicativo executará em seu endereço padrão
+Open [http://localhost:3000](http://localhost:3000)

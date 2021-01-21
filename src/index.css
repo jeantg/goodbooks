@@ -1,15 +1,15 @@
 body * {
-   margin: 0;
+  margin: 0;
 
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 body {
-   background: #f5f6f8;
+  background: #f5f6f8;
 }
 code {
-   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
 a,
@@ -93,16 +93,19 @@ u,
 ul,
 var,
 video {
-   margin: 0;
-   padding: 0;
-   border: 0;
-   font-size: 100%;
-   font: inherit;
-   vertical-align: baseline;
-   font-family: 'Poppins', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
-      'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Poppins', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 body * {
-   display: flex;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+script {
+  display: none;
 }

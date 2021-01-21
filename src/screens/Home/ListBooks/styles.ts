@@ -6,12 +6,8 @@ export const Container = styled.div`
     grid-template-columns: auto auto;
     justify-items: center;
     @media (max-width: 459px) {
-      --auto-grid-min-size: 5rem;
       justify-items: center;
-      grid-template-columns: repeat(
-        auto-fill,
-        minmax(var(--auto-grid-min-size), 1fr)
-      );
+      grid-template-columns: auto;
     }
     @media (min-width: 513px) {
       --auto-grid-min-size: 16rem;
