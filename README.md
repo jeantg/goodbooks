@@ -7,4 +7,4 @@ execute os comandos:
 ### `yarn start`
 
 O aplicativo executará em seu endereço padrão
-Open [http://localhost:3000](http://localhost:3000)
+[http://localhost:3000](http://localhost:3000)
