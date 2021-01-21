@@ -5,9 +5,8 @@
          "@screens": ["./src/screens"],
          "@components": ["./src/components"],
          "@context": ["./src/context"],
-         "@store": ["./src/store"],
-         "@reducer": ["./src/reducer"],
-         "@actions": ["./src/actions"]
+         "@services": ["./src/services"],
+         "@icons": ["./src/icons"]
       }
    }
 }
