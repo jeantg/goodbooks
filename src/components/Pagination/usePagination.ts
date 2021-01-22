@@ -16,10 +16,7 @@ export default function usePagination(props: Props): ItemsTypes {
     page: pageProp,
     siblingCount = 1
   } = props
-
-  const [page, setPage] = useState(1)
-  console.log(pageProp)
-
+  const [page, setPage] = useState(pageProp || 1)
   const handleClick = (value) => {
     setPage(value)
     if (handleChange) {
