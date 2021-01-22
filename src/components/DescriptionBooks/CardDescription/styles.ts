@@ -1,30 +1,55 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  background-color: #fff;
-  max-height: 300px;
-  width: 100%;
+  @media (min-width: 1023.9px) {
+    min-width: 500px;
+    margin: 32px;
+  }
+  .paper {
+    margin: 0 20px;
+    display: flex;
 
+    background-color: #fff;
+    flex-direction: column;
+    max-height: 100%;
+  }
+  max-height: calc(100% - 64px);
+  header {
+    margin: 0;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  footer {
+    margin: 10px auto 0 0;
+  }
+  .content {
+    overflow-y: auto;
+  }
   svg {
-    margin: 5px 5px 5px auto;
     flex-shrink: 0;
     cursor: pointer;
   }
   img {
-    width: 120px;
+    width: 150px;
+    margin-top: 20px;
+    height: 150px;
   }
   .content-book {
-    width: 100%;
+    display: flex;
     flex-direction: column;
-    margin: 10px 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 20px;
     h1 {
       font-size: 16px;
       font-weight: 500;
+      margin-top: 10px;
     }
     a {
       text-decoration: none;
+      margin-bottom: 10px;
       color: #606060;
       cursor: pointer;
     }
@@ -35,48 +60,13 @@ export const Container = styled.div`
     a,
     span {
       font-size: 10px;
-      margin-top: 12px;
     }
-  }
-  .favorite-icon {
-    margin: auto auto;
   }
   .description {
-    margin-top: 20px;
     overflow: auto;
   }
-  @media (min-width: 1023.9px) {
-    width: 800px;
-    min-height: 500px;
 
-    .content-book {
-      width: 100%;
-      flex-direction: column;
-      margin: 10px 20px;
-      h1 {
-        font-size: 26px;
-      }
-      h3 {
-        font-size: 16px;
-      }
-      p,
-      a,
-      span {
-        font-size: 12px;
-        margin-top: 12px;
-      }
-      .description {
-        width: 100%;
-        margin-top: 20px;
-        overflow: auto;
-      }
-    }
-    img {
-      width: 300px;
-    }
-  }
   .icons {
-    margin-top: auto;
     font-size: 12px;
     flex-direction: column;
     align-items: center;

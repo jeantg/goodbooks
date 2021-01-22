@@ -42,7 +42,6 @@ const Home: React.FC = () => {
         <Pagination
           count={booksData?.totalItems ? booksData?.totalItems - perPage : 0}
           perPage={perPage}
-          key={bookDescription?.id}
           onChangePage={(page) => {
             getList(booksSearchValue, page, true)
           }}

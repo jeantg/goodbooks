@@ -10,9 +10,14 @@ const App: React.FC = () => {
     s.push(t)
     setFavoritesData(s)
   }
+  function removeFavorites(index: number): void {
+    let s = favoritesData || []
+    s = s.filter((_, i) => i !== index)
+    setFavoritesData(s)
+  }
   return (
     <AppContext.Provider
-      value={{ favoritesData, setFavoritesData, setFavorites }}
+      value={{ favoritesData, setFavoritesData, setFavorites, removeFavorites }}
     >
       <div className='app'>
         <GlobalStyle />

@@ -8,7 +8,7 @@ interface Props {
   siblingCount?: number
 }
 //This hook is a cutomization of the implementation of the material-ui available at https://github.com/mui-org/material-ui/
-export default function usePagination (props: Props): ItemsTypes {
+export default function usePagination(props: Props): ItemsTypes {
   const {
     boundaryCount = 1,
     count = 1,
@@ -17,7 +17,8 @@ export default function usePagination (props: Props): ItemsTypes {
     siblingCount = 1
   } = props
 
-  const [page, setPage] = useState(pageProp || 1)
+  const [page, setPage] = useState(1)
+  console.log(pageProp)
 
   const handleClick = (value) => {
     setPage(value)
@@ -60,13 +61,14 @@ export default function usePagination (props: Props): ItemsTypes {
       : []),
     ...endPages
   ]
-  function previous () {
+  function previous() {
     return page > 1 && handleClick(page - 1)
   }
-  function next () {
+  function next() {
     return count > page && handleClick(page + 1)
   }
-  function getList (item: string | number): UsePaginationItem {
+
+  function getList(item: string | number): UsePaginationItem {
     return {
       onClick: () => {
         handleClick(item)

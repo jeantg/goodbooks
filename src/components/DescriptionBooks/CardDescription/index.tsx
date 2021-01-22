@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react'
 import { Container } from './styles'
 import { ClearIcon, FavoriteIcon, FavoriteBorderIcon } from '@icons'
 import { BooksContext, AppContext } from '@context'
+
 interface Props {
   setShowModal: (e: boolean) => void
 }
@@ -30,32 +31,41 @@ const CardDescription: React.FC<Props> = ({ setShowModal }) => {
   }
   return (
     <Container>
-      <img src={bookDescription?.volumeInfo?.imageLinks?.thumbnail} alt='' />
-      <div className='content-book'>
-        <h1>{bookDescription?.volumeInfo?.title}</h1>
-        {bookDescription?.volumeInfo?.previewLink && (
-          <a
-            rel='noreferrer'
-            href={bookDescription?.volumeInfo?.previewLink || '#'}
-            target='_blank'
-          >
-            Saiba mais sobre este livro
-          </a>
-        )}
-
-        <div className='description'>
-          <h3>{bookDescription?.volumeInfo?.description}</h3>
-        </div>
-        <p>Autor (es): </p>
-        {authors.map((author) => (
-          <span key={author}>{author} </span>
-        ))}
-        <div className='icons'>
-          <span>Favoritar</span>
+      <div className='paper'>
+        <header>
           {renderFavoriteIcon()}
+
+          <ClearIcon onClick={() => setShowModal(false)} />
+        </header>
+        <div className='content'>
+          <div className='content-book'>
+            <img
+              src={bookDescription?.volumeInfo?.imageLinks?.thumbnail}
+              alt=''
+            />
+            <h1>{bookDescription?.volumeInfo?.title}</h1>
+            {bookDescription?.volumeInfo?.previewLink && (
+              <a
+                rel='noreferrer'
+                href={bookDescription?.volumeInfo?.previewLink || '#'}
+                target='_blank'
+              >
+                Saiba mais sobre este livro
+              </a>
+            )}
+
+            <div className='description'>
+              <h3>{bookDescription?.volumeInfo?.description}</h3>
+            </div>
+            <footer>
+              <p>Autor (es): </p>
+              {authors.map((author) => (
+                <span key={author}>{author} </span>
+              ))}
+            </footer>
+          </div>
         </div>
       </div>
-      <ClearIcon onClick={() => setShowModal(false)} />
     </Container>
   )
 }

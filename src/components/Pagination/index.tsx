@@ -23,6 +23,7 @@ const Pagination: React.FC<Props> = ({ count, onChangePage, perPage = 10 }) => {
     boundaryCount: 0,
     onChange: onChangePage
   })
+
   function renderPagination(item: UsePaginationItem) {
     if (typeof item.page === 'string') {
       return <button key={item.page}>...</button>

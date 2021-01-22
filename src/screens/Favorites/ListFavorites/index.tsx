@@ -14,7 +14,9 @@ const ListFavorites: React.FC = () => {
               src={book?.volumeInfo?.imageLinks?.smallThumbnail}
               index={index}
             >
-              <h1>{book?.volumeInfo?.title}</h1>
+              <div className='content'>
+                <h1>{book?.volumeInfo?.title}</h1>
+              </div>
             </CardFavorites>
           ))}
       </ul>

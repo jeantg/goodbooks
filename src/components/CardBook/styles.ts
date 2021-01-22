@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: grid;
   cursor: pointer;
   width: 200px;
+  -webkit-tap-highlight-color: transparent;
   margin: 10px 10px;
   box-shadow: 0 6px 11px 0 rgba(0, 0, 0, 0.12), 0 6px 11px 0 rgba(0, 0, 0, 0.05);
   background-color: #fff;
@@ -22,7 +23,7 @@ export const Container = styled.div`
     font-size: 12px;
     line-height: normal;
     letter-spacing: 0.5px;
-    color: #757575;
+    color: #000;
     margin: 24px 10px 10px 10px;
   }
   .ellipsis {

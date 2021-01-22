@@ -25,7 +25,7 @@ export const Container = styled.div`
   h1 {
     font-size: 35px;
     color: #fff;
-
+    cursor: pointer;
     font-family: 'Fredoka One';
   }
 

@@ -8,7 +8,7 @@ export const Container = styled.div`
   text-align: center;
   flex-direction: row;
   width: 100%;
-  margin: 10px;
+  justify-content: space-between;
   transition: visibility 0s 500ms, opacity 500ms linear;
   h1 {
     margin: 5px 20px;
@@ -17,5 +17,11 @@ export const Container = styled.div`
   img {
     height: 100px;
     width: 80px;
+  }
+  svg {
+    height: 25px;
+    width: 25px;
+    flex-shrink: 0;
+    margin: auto 5px 5px 5px;
   }
 `
